@@ -6,6 +6,11 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -44,31 +49,6 @@
 					}
 				],
 				"name": "Approval",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "from",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "address",
-						"name": "to",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					}
-				],
-				"name": "Sent",
 				"type": "event"
 			},
 			{
@@ -297,7 +277,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "value",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
@@ -335,11 +315,11 @@
 	},
 	"sources": {
 		"gitpopu/solidity/token.sol": {
-			"keccak256": "0x4e4fa5397217560ddbe6233e3cf627805035e657f275625dc86021320c1ccc0a",
+			"keccak256": "0xee822c23a3ae94d1eb725291560ec3951148ce9cf2a46cbc2d835b89a2062a8f",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://665e41b9711d824914e49f0b6b1f7f02c331ce6af4e6a89cdef169644b324699",
-				"dweb:/ipfs/QmR1mC8Tgx5p14JdSTEayEeQjzsqiuGYCEEqdgyRyote7X"
+				"bzz-raw://9b0802a8097e468f7ae65a562c690d88ffa1ffff8bd0473579c733dba2ceedd8",
+				"dweb:/ipfs/QmRkcYhC1n2S8ugngcNTdWHDRofTosk2irgUdzuZZTZMKX"
 			]
 		}
 	},

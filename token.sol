@@ -6,13 +6,13 @@ interface ERC20 {
     function balanceOf(address who) external view returns (uint);
     function transfer(address to, uint value) external;
     event Transfer(address indexed from, address indexed to, uint value);
-    function allowance(address owner, address spender) external view returns (uint);
+    function allowance(address owner, address spender) external returns (uint);
     function transferFrom(address from, address to, uint value) external;
     function approve(address spender, uint value) external;
     event Approval(address indexed owner, address indexed spender, uint value);
 }
 
-abstract contract token is ERC20 {
+contract token is ERC20 {
     uint public _totalSupply;
     address public minter;
     string public name;
@@ -20,7 +20,6 @@ abstract contract token is ERC20 {
     mapping(address => uint256) public balances;
     mapping (address => mapping (address => uint)) public allowed;
 
-    event Sent(address from, address to, uint256 amount);
 
     constructor() {
         minter = msg.sender;
@@ -46,7 +45,7 @@ abstract contract token is ERC20 {
 
         balances[msg.sender] -= amount;
         balances[receiver] += amount;
-        emit Sent(msg.sender, receiver, amount);
+        emit Transfer(msg.sender, receiver, amount);
     }
 
     function transferFrom(address from, address to, uint amount) public override{
@@ -58,7 +57,7 @@ abstract contract token is ERC20 {
         }
         balances[from] -= amount;
         balances[to] += amount;
-        emit Sent(msg.sender, receiver, amount);
+        emit Transfer(from, to, amount);
     }
 
     function totalSupply() public view override returns(uint){
@@ -73,6 +72,10 @@ abstract contract token is ERC20 {
         require(amount != 0);
         allowed[msg.sender][spender] = amount;
         emit Approval(msg.sender, spender, amount);
+    }
+
+    function allowance(address owner, address spender) public view override returns(uint256) {
+        return allowed[owner][spender];
     }
 
 }
