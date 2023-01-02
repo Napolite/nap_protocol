@@ -91,6 +91,32 @@
 			},
 			{
 				"inputs": [],
+				"name": "_name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "_totalSupply",
 				"outputs": [
 					{
@@ -234,19 +260,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "minter",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "name",
 				"outputs": [
 					{
@@ -367,11 +380,11 @@
 	},
 	"sources": {
 		"gitpopu/solidity/Napolite/contracts/token.sol": {
-			"keccak256": "0x28e467fd4184315091a7358d3fe8ba03806ad7e3b1d8bc692756c2b027e8afa4",
+			"keccak256": "0xa6037b0cfe8766d63cce93a1b151f076f8855aef4d09185821207a88020c1856",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://8b048383394628cbd82b091e357296e73622e89e64e5957e04257363c215367c",
-				"dweb:/ipfs/QmZR6T8a4rAgcxVsHvma2GSiwY7usfSd4qe53Za8URRSEV"
+				"bzz-raw://62559a9cf978a0dc7f2d097feee6440d36e59cecc40c1b582ba2f7948853058d",
+				"dweb:/ipfs/QmYg4BQFLL6aHqqPFGsJ87jGDc7vnMsG6UoReqjTPnQwtt"
 			]
 		}
 	},

@@ -3,6 +3,8 @@
 pragma solidity >=0.5.0;
 
 interface ERC20 {
+    function name() external view returns(string memory);
+    function symbol() external view returns(string memory);
     function totalSupply() external view returns (uint);
     function balanceOf(address who) external view returns (uint);
     function transfer(address to, uint value) external;
@@ -21,32 +23,41 @@ interface Ownable{
 
 contract token is ERC20, Ownable {
     uint public _totalSupply;
-    address public minter;
     address public contractOwner;
-    string public name;
-    string public symbol;
+    string public _name;
+    string public _symbol;
     uint public decimals ;
     mapping(address => uint256) public balances;
     mapping (address => mapping (address => uint)) public allowed;
 
 
     constructor() {
-        minter = msg.sender;
-        name='Tok Token';
+        contractOwner = msg.sender;
+        _name="Napolite";
+        _symbol = "Nap";
         mint(1000000000);
     }
 
 
     function mint(uint256 amount) private {
-        require(msg.sender == minter);
-        balances[minter] += amount;
+        require(msg.sender == contractOwner);
+        balances[contractOwner] += amount;
         _totalSupply += amount;
+    }
+
+    function name() public view override returns(string memory){
+        return _name;
+    }
+
+    function symbol() public view override returns(string memory){
+        return _symbol;
     }
 
     error InsuficientBalance(uint256 requested, uint256 available);
 
 
     function transfer(address receiver, uint256 amount) public override{
+        require(msg.sender != receiver, "you cannot transfer tokens to same address");
         if (amount > balances[msg.sender]) {
             revert InsuficientBalance({
                 requested: amount,
@@ -61,7 +72,9 @@ contract token is ERC20, Ownable {
 
     function transferFrom(address from, address to, uint amount) public override{
         uint allowanceAmount = allowed[from][msg.sender];
-         if (allowanceAmount < amount || amount > balances[from]) {
+        require(from != to, "you cannot transfer tokens to same address");
+        require(allowanceAmount < amount, "Contract not allowed to spend amount");
+         if (amount > balances[from]) {
             revert InsuficientBalance({
                 requested: amount,
                 available: balances[from]
@@ -81,7 +94,6 @@ contract token is ERC20, Ownable {
     }
 
     function approve(address spender, uint amount) public override{
-        require(amount != 0);
         allowed[msg.sender][spender] = amount;
         emit Approval(msg.sender, spender, amount);
     }
