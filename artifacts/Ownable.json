@@ -49,14 +49,14 @@
 		},
 		"gasEstimates": null,
 		"methodIdentifiers": {
-			"owner()": "8da5cb5b",
+			"Owner()": "b4a99a4e",
 			"transferOwnership(address)": "f2fde38b"
 		}
 	},
 	"abi": [
 		{
 			"inputs": [],
-			"name": "owner",
+			"name": "Owner",
 			"outputs": [
 				{
 					"internalType": "address",

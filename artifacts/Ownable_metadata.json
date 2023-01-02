@@ -7,7 +7,7 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "owner",
+				"name": "Owner",
 				"outputs": [
 					{
 						"internalType": "address",
@@ -60,11 +60,11 @@
 	},
 	"sources": {
 		"gitpopu/solidity/Napolite/contracts/token.sol": {
-			"keccak256": "0x78db91d78d8ad8367e18309691ff192f28243b0c394380f3b2d7a2fb282c1de5",
+			"keccak256": "0x28e467fd4184315091a7358d3fe8ba03806ad7e3b1d8bc692756c2b027e8afa4",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://6bd8c2edbb90b0e120eb101a021c0be2142387b307f78dca3a756259dc349b18",
-				"dweb:/ipfs/QmQqKTuTwZEBC2zmv3G6YsvnjM9eXA2m9zyY5z6K6NyajY"
+				"bzz-raw://8b048383394628cbd82b091e357296e73622e89e64e5957e04257363c215367c",
+				"dweb:/ipfs/QmZR6T8a4rAgcxVsHvma2GSiwY7usfSd4qe53Za8URRSEV"
 			]
 		}
 	},

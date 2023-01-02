@@ -14,12 +14,12 @@ interface ERC20 {
 }
 
 interface Ownable{
-    function  owner() external view returns (address);
+    function  Owner() external view returns (address);
     function transferOwnership(address sender) external;
 }
 
 
-contract token is ERC20 {
+contract token is ERC20, Ownable {
     uint public _totalSupply;
     address public minter;
     address public contractOwner;
@@ -39,11 +39,12 @@ contract token is ERC20 {
 
     function mint(uint256 amount) private {
         require(msg.sender == minter);
-        balances[owner] += amount;
+        balances[minter] += amount;
         _totalSupply += amount;
     }
 
     error InsuficientBalance(uint256 requested, uint256 available);
+
 
     function transfer(address receiver, uint256 amount) public override{
         if (amount > balances[msg.sender]) {
@@ -87,6 +88,15 @@ contract token is ERC20 {
 
     function allowance(address owner, address spender) public view override returns(uint256) {
         return allowed[owner][spender];
+    }
+
+    function Owner() public view override returns (address){
+        return contractOwner;
+    }
+
+    function transferOwnership(address newOwner) public override{
+        require(msg.sender == contractOwner, "you are not the owner of this contract");
+        contractOwner = newOwner;
     }
 
 }
