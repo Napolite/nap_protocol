@@ -1,8 +1,8 @@
 async function main() {
-  const napToken = await ethers.getContractFactory("../token");
+  const napToken = await ethers.getContractFactory("token");
 
   // Start deployment, returning a promise that resolves to a contract object
-  const Napolite = await napToken.deploy("Hello World!");
+  const Napolite = await napToken.deploy();
   console.log("Contract deployed to address:", Napolite.address);
 }
 
