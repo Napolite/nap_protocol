@@ -12,6 +12,7 @@ interface ERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
 }
 
+
 contract token is ERC20 {
     uint public _totalSupply;
     address public minter;
@@ -26,6 +27,7 @@ contract token is ERC20 {
         name='Tok Token';
         mint(1000000000);
     }
+
 
     function mint(uint256 amount) private {
         require(msg.sender == minter);
@@ -49,7 +51,8 @@ contract token is ERC20 {
     }
 
     function transferFrom(address from, address to, uint amount) public override{
-         if (amount > balances[from]) {
+        uint allowanceAmount = allowed[from][msg.sender];
+         if (allowanceAmount < amount || amount > balances[from]) {
             revert InsuficientBalance({
                 requested: amount,
                 available: balances[from]

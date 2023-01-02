@@ -184,7 +184,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"gitpopu/solidity/token.sol": "ERC20"
+			"gitpopu/solidity/Napolite/contracts/token.sol": "ERC20"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -198,12 +198,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"gitpopu/solidity/token.sol": {
-			"keccak256": "0xee822c23a3ae94d1eb725291560ec3951148ce9cf2a46cbc2d835b89a2062a8f",
+		"gitpopu/solidity/Napolite/contracts/token.sol": {
+			"keccak256": "0xfbedd0dec7d0c1fc639c59dbd60b6de700cd23e919122c1aed289b38ed188c4c",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://9b0802a8097e468f7ae65a562c690d88ffa1ffff8bd0473579c733dba2ceedd8",
-				"dweb:/ipfs/QmRkcYhC1n2S8ugngcNTdWHDRofTosk2irgUdzuZZTZMKX"
+				"bzz-raw://bc4ac2774541de24cd891e2e1a872438c430655427484e443b72d15060ab8c69",
+				"dweb:/ipfs/QmcqybtQtmxwRMtuCZWnbKyTfZJ9k5CBifB2keDXFRuKgV"
 			]
 		}
 	},
