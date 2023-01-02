@@ -1,0 +1,23 @@
+{
+  "name": "naptoken",
+  "version": "1.0.0",
+  "description": "napolite token",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Napolite/nap_protocol.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Napolite/nap_protocol/issues"
+  },
+  "homepage": "https://github.com/Napolite/nap_protocol#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "hardhat": "^2.12.5"
+  }
+}
