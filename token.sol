@@ -1,3 +1,4 @@
+
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.5.0;
 
@@ -12,11 +13,18 @@ interface ERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
 }
 
+interface Ownable{
+    function  owner() external view returns (address);
+    function transferOwnership(address sender) external;
+}
+
 
 contract token is ERC20 {
     uint public _totalSupply;
     address public minter;
+    address public contractOwner;
     string public name;
+    string public symbol;
     uint public decimals ;
     mapping(address => uint256) public balances;
     mapping (address => mapping (address => uint)) public allowed;
@@ -31,7 +39,7 @@ contract token is ERC20 {
 
     function mint(uint256 amount) private {
         require(msg.sender == minter);
-        balances[minter] += amount;
+        balances[owner] += amount;
         _totalSupply += amount;
     }
 

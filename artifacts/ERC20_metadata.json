@@ -199,11 +199,11 @@
 	},
 	"sources": {
 		"gitpopu/solidity/Napolite/contracts/token.sol": {
-			"keccak256": "0xfbedd0dec7d0c1fc639c59dbd60b6de700cd23e919122c1aed289b38ed188c4c",
+			"keccak256": "0x78db91d78d8ad8367e18309691ff192f28243b0c394380f3b2d7a2fb282c1de5",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://bc4ac2774541de24cd891e2e1a872438c430655427484e443b72d15060ab8c69",
-				"dweb:/ipfs/QmcqybtQtmxwRMtuCZWnbKyTfZJ9k5CBifB2keDXFRuKgV"
+				"bzz-raw://6bd8c2edbb90b0e120eb101a021c0be2142387b307f78dca3a756259dc349b18",
+				"dweb:/ipfs/QmQqKTuTwZEBC2zmv3G6YsvnjM9eXA2m9zyY5z6K6NyajY"
 			]
 		}
 	},

@@ -1,0 +1,72 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"gitpopu/solidity/Napolite/contracts/token.sol": "Ownable"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"gitpopu/solidity/Napolite/contracts/token.sol": {
+			"keccak256": "0x78db91d78d8ad8367e18309691ff192f28243b0c394380f3b2d7a2fb282c1de5",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://6bd8c2edbb90b0e120eb101a021c0be2142387b307f78dca3a756259dc349b18",
+				"dweb:/ipfs/QmQqKTuTwZEBC2zmv3G6YsvnjM9eXA2m9zyY5z6K6NyajY"
+			]
+		}
+	},
+	"version": 1
+}
