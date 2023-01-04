@@ -36,5 +36,16 @@ contract Pool {
         emit Deposit("Withdrawal Completed");
     }
 
+    function exchange(address from, address to, uint amount) public{
+        uint tokenBalance = to.balanceOf(address(this));
+        require(from != to, "Cannot perfrom this action on same tokens");
+        require(tokenBalance >amount, "We don't have enough for this swap");
+
+        deposit(from, amount);
+        withdrawal(to, amount);
+
+        emit Deposit("withdrawal completed");
+    }
+
 
 }
