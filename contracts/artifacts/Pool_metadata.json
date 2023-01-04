@@ -4,7 +4,57 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "message",
+						"type": "string"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "token",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -33,11 +83,11 @@
 	},
 	"sources": {
 		"gitpopu/solidity/Napolite/contracts/contracts/liquidityPool.sol": {
-			"keccak256": "0x05237d1cb51c7cea987364180191083dac7cf8fe862c94af4bf5fc01729f60bc",
+			"keccak256": "0x7b16b40eebf2edbad122a2d6e3ddd33c0f086eed81c9aa95493043abe9b861f5",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://d9f087e3ae9594d29a04b70f06208a701ac4f9ef33ecb8c62480132292c27a4c",
-				"dweb:/ipfs/QmNmxVgsKwaMKNiJ8A6RJMMLNETJQ3wmHS2HYqnyDsL1Ki"
+				"bzz-raw://33b8b905e39e07f175711777e9093f82f8aac5ded7cfe2ca45798b895dedbb81",
+				"dweb:/ipfs/QmeKPhafmUhkbntPSWEjxe1PkudQv8tzrd9dF1pA7HqrnQ"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol": {

@@ -21,5 +21,20 @@ contract Pool {
     using SafeERC20 for ERC20;
     using SafeMath for uint;
 
+    event Deposit(string message);
+
+    function deposit(address token, uint amount) public{
+        ERC20(token).transferFrom(msg.sender, address(this), amount);
+
+        emit Deposit("deposit completed");
+    }
+
+
+    function withdrawal(address token, uint amount) public{
+        ERC20(token).transfer(msg.sender, amount);
+
+        emit Deposit("Withdrawal Completed");
+    }
+
 
 }
