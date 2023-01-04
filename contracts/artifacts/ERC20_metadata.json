@@ -225,11 +225,11 @@
 	},
 	"sources": {
 		"gitpopu/solidity/Napolite/contracts/contracts/liquidityPool.sol": {
-			"keccak256": "0x7b16b40eebf2edbad122a2d6e3ddd33c0f086eed81c9aa95493043abe9b861f5",
+			"keccak256": "0x1b47b537450535baf0c661d1f60c3fa23da4e02655a8351d3a8a8d654c5f6475",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://33b8b905e39e07f175711777e9093f82f8aac5ded7cfe2ca45798b895dedbb81",
-				"dweb:/ipfs/QmeKPhafmUhkbntPSWEjxe1PkudQv8tzrd9dF1pA7HqrnQ"
+				"bzz-raw://61dbe089248d8e04b360bb91709aa78a878d0028fbacd42a1b29bb5af900b147",
+				"dweb:/ipfs/QmdKnheSH1rAvc2rceroFCTSYRMQfi5gaqpQcUr63TmTBw"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol": {

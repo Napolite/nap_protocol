@@ -37,7 +37,8 @@ contract Pool {
     }
 
     function exchange(address from, address to, uint amount) public{
-        uint tokenBalance = to.balanceOf(address(this));
+        uint tokenBalance = ERC20(to).balanceOf(address(this));
+        
         require(from != to, "Cannot perfrom this action on same tokens");
         require(tokenBalance >amount, "We don't have enough for this swap");
 
