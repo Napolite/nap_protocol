@@ -26,22 +26,30 @@ contract Pool {
 
     event Transact(address caller, uint amount,string transtype, string message);
 
-    function offerLPT(address to, uint amount){
+    function offerLPT(address to, uint amount) private{
         ERC20(0x76A6527426762F2879cDF91E1e0cb7eDe180292F).transferFrom(address(this), to, amount)
 
         emit Transact(to, amount, "offerLPT", "Transferred Provider tokens")
     }
 
+    function withdrawLPT(address from, uint amount) private{
+        RC20(0x76A6527426762F2879cDF91E1e0cb7eDe180292F).transferFrom(to, address(this), amount)
+
+        emit Transact(to, amount, "withdrawLPT", "Transferred Provider tokens")
+    }
+
     function deposit(address token, uint amount) public{
         require(ERC20(token).transferFrom(msg.sender, address(this), amount), "Cannot process this transfer");
         deposits[msg.sender] += amount;
+        offerLPT(msg.sender, amount)
         emit Transact(msg.sender, amount,"deposit", "Deposit completed");
     }
 
 
     function withdrawal(address token, uint amount) public{
+        require(deposits[msg.sender] >= amount, "user does not have enough liquidity")
         ERC20(token).transfer(msg.sender, amount);
-
+        withdrawLPT(msg.sender, amount)
         emit Transact(msg.sender, amount,"withdrawal", "Withdrawal Completed");
     }
 
