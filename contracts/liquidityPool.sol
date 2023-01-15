@@ -27,7 +27,9 @@ contract Pool {
     event Transact(address caller, uint amount,string transtype, string message);
 
     function offerLPT(address to, uint amount){
-        
+        ERC20(0x76A6527426762F2879cDF91E1e0cb7eDe180292F).transferFrom(address(this), to, amount)
+
+        emit Transact(to, amount, "offerLPT", "Transferred Provider tokens")
     }
 
     function deposit(address token, uint amount) public{
