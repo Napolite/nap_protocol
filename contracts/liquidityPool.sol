@@ -26,6 +26,10 @@ contract Pool {
 
     event Transact(address caller, uint amount,string transtype, string message);
 
+    function offerLPT(address to, uint amount){
+        
+    }
+
     function deposit(address token, uint amount) public{
         require(ERC20(token).transferFrom(msg.sender, address(this), amount), "Cannot process this transfer");
         deposits[msg.sender] += amount;
