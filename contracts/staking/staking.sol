@@ -18,5 +18,6 @@ interface ERC20 {
 }
 
 class Staking{
-
+    using SafeERC20 for ERC20;
+    using SafeMath for uint;
 }

@@ -1,3 +1,4 @@
+
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.5.0;
 
@@ -20,20 +21,22 @@ interface ERC20 {
 contract Pool {
     using SafeERC20 for ERC20;
     using SafeMath for uint;
+    
+    mapping(address => uint) deposits;
 
-    event Deposit(string message);
+    event Transact(address caller, uint amount,string transtype, string message);
 
     function deposit(address token, uint amount) public{
-        ERC20(token).transferFrom(msg.sender, address(this), amount);
-
-        emit Deposit("deposit completed");
+        require(ERC20(token).transferFrom(msg.sender, address(this), amount), "Cannot process this transfer");
+        deposits[msg.sender] += amount;
+        emit Transact(msg.sender, amount,"deposit", "Deposit completed");
     }
 
 
     function withdrawal(address token, uint amount) public{
         ERC20(token).transfer(msg.sender, amount);
 
-        emit Deposit("Withdrawal Completed");
+        emit Transact(msg.sender, amount,"withdrawal", "Withdrawal Completed");
     }
 
     function exchange(address from, address to, uint amount) public{
@@ -45,7 +48,7 @@ contract Pool {
         deposit(from, amount);
         withdrawal(to, amount);
 
-        emit Deposit("withdrawal completed");
+        emit Transact(msg.sender, amount,"swap", "Swap completed");
     }
 
 
