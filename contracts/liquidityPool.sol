@@ -18,9 +18,17 @@ interface ERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
 }
 
+interface Ownable{
+    function owner() external view returns(address);
+
+    function transferOwnership(address owner, address newOwner) external; 
+}
+
 contract Pool {
     using SafeERC20 for ERC20;
     using SafeMath for uint;
+
+    address public _owner;
     
     mapping(address => uint) deposits;
 
@@ -28,13 +36,11 @@ contract Pool {
 
     function offerLPT(address to, uint amount) private{
         ERC20(0x76A6527426762F2879cDF91E1e0cb7eDe180292F).transferFrom(address(this), to, amount)
-
         emit Transact(to, amount, "offerLPT", "Transferred Provider tokens")
     }
 
     function withdrawLPT(address from, uint amount) private{
         RC20(0x76A6527426762F2879cDF91E1e0cb7eDe180292F).transferFrom(to, address(this), amount)
-
         emit Transact(to, amount, "withdrawLPT", "Transferred Provider tokens")
     }
 
@@ -63,6 +69,10 @@ contract Pool {
         withdrawal(to, amount);
 
         emit Transact(msg.sender, amount,"swap", "Swap completed");
+    }
+
+    function deprecate() public{
+
     }
 
 
