@@ -29,12 +29,14 @@ contract Pool {
     using SafeMath for uint;
 
     address public _owner;
+    bool public deprecated = false;
     
     mapping(address => uint) deposits;
 
     event Transact(address caller, uint amount,string transtype, string message);
 
     function offerLPT(address to, uint amount) private{
+        require(!deprecated, "Contract is no longer in use")
         ERC20(0x76A6527426762F2879cDF91E1e0cb7eDe180292F).transferFrom(address(this), to, amount)
         emit Transact(to, amount, "offerLPT", "Transferred Provider tokens")
     }
@@ -45,6 +47,8 @@ contract Pool {
     }
 
     function deposit(address token, uint amount) public{
+        require(!deprecated, "Contract is no longer in use")
+
         require(ERC20(token).transferFrom(msg.sender, address(this), amount), "Cannot process this transfer");
         deposits[msg.sender] += amount;
         offerLPT(msg.sender, amount)
@@ -53,6 +57,8 @@ contract Pool {
 
 
     function withdrawal(address token, uint amount) public{
+        require(!deprecated, "Contract is no longer in use")
+
         require(deposits[msg.sender] >= amount, "user does not have enough liquidity")
         ERC20(token).transfer(msg.sender, amount);
         withdrawLPT(msg.sender, amount)
@@ -60,6 +66,7 @@ contract Pool {
     }
 
     function exchange(address from, address to, uint amount) public{
+        require(!deprecated, "Contract is no longer in use")
         uint tokenBalance = ERC20(to).balanceOf(address(this));
         
         require(from != to, "Cannot perfrom this action on same tokens");
@@ -71,8 +78,10 @@ contract Pool {
         emit Transact(msg.sender, amount,"swap", "Swap completed");
     }
 
-    function deprecate() public{
+    function deprecate(address newContract) public{
+        require(msg.sender == owner, "Not authorised to perform this operation");
 
+        deprecated = true;
     }
 
 
