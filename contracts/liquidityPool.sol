@@ -80,7 +80,6 @@ contract Pool {
 
     function deprecate(address newContract) public{
         require(msg.sender == owner, "Not authorised to perform this operation");
-
         deprecated = true;
     }
 
